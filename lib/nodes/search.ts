@@ -1,4 +1,4 @@
-import { AgentState } from "../state";
+import { AgentState } from "../graph/state";
 import { yahooService } from "../yahoo";
 
 export async function searchNode(state: typeof AgentState.State) {

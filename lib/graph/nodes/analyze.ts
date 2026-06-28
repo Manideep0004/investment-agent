@@ -1,6 +1,6 @@
 import { AgentState } from "../state";
-import { llm } from "../llm";
-import { INVESTMENT_PROMPT } from "../prompts";
+import { llm } from "../../llm";
+import { INVESTMENT_PROMPT } from "../../prompts";
 
 export async function analyzeNode(
     state: typeof AgentState.State

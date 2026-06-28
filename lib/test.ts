@@ -1,7 +1,7 @@
 import { Annotation, END, START, StateGraph } from "@langchain/langgraph";
 import { yahooService } from "./yahoo";
 import { llm } from "./llm";
-import { buildInvestmentContext } from "./context";
+import { buildInvestmentContext } from "./graph/context";
 import { INVESTMENT_PROMPT } from "./prompts";
 
 
