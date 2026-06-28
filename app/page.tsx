@@ -1,11 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import SearchBar from "../components/ui/SearchBar";
+import SearchBar from "../components/SearchBar";
+import { InvestmentResult } from "@/types/investment";
+import RecommendationCard from "@/components/RecommendationCard";
+import MetricsGrid from "@/components/MetricsGrid";
 
 export default function Home() {
   const [company, setCompany] = useState("");
   const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState<InvestmentResult | null>(null);
 
   async function analyze() {
     setLoading(true);
@@ -22,13 +26,14 @@ export default function Home() {
 
     const data = await res.json();
 
-    console.log(data);
+    setResult(data);
 
     setLoading(false);
   }
 
   return (
-    <main className="max-w-4xl mx-auto p-10">
+    <main className="max-w-5xl mx-auto p-10">
+
       <h1 className="text-4xl font-bold mb-8">
         AI Investment Research Agent
       </h1>
@@ -39,6 +44,22 @@ export default function Home() {
         onAnalyze={analyze}
         loading={loading}
       />
+
+      {result && (
+  <div className="space-y-6 mt-8">
+
+    <RecommendationCard
+      recommendation={result.analysis.recommendation}
+      confidence={result.analysis.confidence}
+    />
+
+    <MetricsGrid
+      quote={result.quote}
+    />
+
+  </div>
+)}
+
     </main>
   );
 }

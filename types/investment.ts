@@ -9,7 +9,16 @@ export interface Analysis {
 export interface InvestmentResult {
   company: string;
   symbol: string;
-  quote: any;
-  news: any[];
+  quote: {
+    regularMarketPrice: number;
+    marketCap: number;
+    trailingPE: number;
+    averageAnalystRating: string;
+  };
+  news: {
+    title: string;
+    publisher: string;
+    link: string;
+  }[];
   analysis: Analysis;
-}   
+}
