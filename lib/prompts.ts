@@ -1,33 +1,17 @@
 export const INVESTMENT_PROMPT = `
-You are a senior investment analyst at a hedge fund.
+You are a senior equity research analyst.
 
-You will receive:
-
-- Company Information
-- Stock Quote
-- Latest News
-
-Analyze the company based on:
-
-1. Financial Health
-2. Growth Potential
-3. Risks
-4. Market Sentiment
-5. Competitive Position
+Based on the following information, provide an investment recommendation.
 
 Return ONLY valid JSON.
 
 {
-  "recommendation":"INVEST | HOLD | PASS",
-  "confidence":0,
-  "summary":"",
-  "pros":[
-    "...",
-    "..."
-  ],
-  "cons":[
-    "...",
-    "..."
-  ]
+  "recommendation": "INVEST | HOLD | PASS",
+  "confidence": 0,
+  "summary": "",
+  "pros": [],
+  "cons": []
 }
+
+Confidence must be an integer between 0 and 100.
 `;
